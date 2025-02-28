@@ -1,11 +1,8 @@
-import java.util.Scanner;
-
 public class Television {
 
-    private int volume;
+    private int totalVolume;
     private int channel;
     private boolean turnOnOff;
-    private boolean closeMenu;
 
     public void setTurnOnOff(boolean turnOnOff) {
         this.turnOnOff = turnOnOff;
@@ -22,28 +19,22 @@ public class Television {
             return "The tv is off now";
     }
 
-    public void setChannel(int channel) {
-        this.channel = channel;
+    public void initialVol(){
+        this.totalVolume = 0;
     }
 
-    public int getChannel() {
-        return channel;
+    public void increaseVolume(int vol) {
+        this.totalVolume += vol;
+        System.out.println("Volume level turned to: " + getTotalVolume());
     }
 
-    public void setVolume(int volume) {
-        this.volume = volume;
+    public void downVolume(int vol) {
+        this.totalVolume -= vol;
+        System.out.println("Volume level turned to: " + getTotalVolume());
     }
 
-    public int getVolume() {
-        return volume;
-    }
-
-    public void setCloseMenu(boolean closeMenu) {
-        this.closeMenu = closeMenu;
-    }
-
-    public boolean getCloseMenu() {
-        return closeMenu;
+    public int getTotalVolume() {
+        return totalVolume;
     }
 
 }

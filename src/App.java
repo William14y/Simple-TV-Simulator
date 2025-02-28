@@ -28,14 +28,24 @@ public class App {
         Scanner menuOption = new Scanner(System.in);
         int menuOpt = menuOption.nextInt();
 
-        if (menuOpt == 1) {
-            television.setTurnOnOff(true);
-            System.out.println(television.isOnOrOff());
-            menuTV();
-        } else if (menuOpt == 2) {
-            television.setTurnOnOff(false);
-            System.out.println(television.isOnOrOff());
-            menuTV();
+        switch (menuOpt) {
+            case 1:
+                television.setTurnOnOff(true);
+                System.out.println(television.isOnOrOff());
+                menuTV();
+                break;
+            case 2:
+                television.setTurnOnOff(false);
+                System.out.println(television.isOnOrOff());
+                menuTV();
+                break;
+            case 3:
+                System.out.println("How much volume do you want to increase?\n");
+                Scanner scannerVolUp = new Scanner(System.in);
+                int increasedVol = scannerVolUp.nextInt();
+                television.increaseVolume(increasedVol);
+                menuTV();
+                break;
         }
     }
 }
